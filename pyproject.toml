@@ -1,0 +1,11 @@
+[project]
+name = "fdb-test"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "firebird-driver>=1.10.10",
+    "pytest>=8.3.5",
+    "sqlalchemy>=2.0.40",
+]
