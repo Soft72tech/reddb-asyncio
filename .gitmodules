@@ -1,0 +1,9 @@
+[submodule "sqlalchemy-firebird"]
+	path = external/sqlalchemy-firebird
+	url = https://github.com/pauldex/sqlalchemy-firebird.git
+[submodule "firebird-driver"]
+	path = external/firebird-driver
+	url = https://github.com/FirebirdSQL/python3-driver.git
+[submodule "firebirdsql"]
+	path = external/firebirdsql
+	url = https://github.com/nakagami/pyfirebirdsql.git
