@@ -7,3 +7,6 @@
 [submodule "firebirdsql"]
 	path = external/firebirdsql
 	url = https://github.com/nakagami/pyfirebirdsql.git
+[submodule "sqlalchemy"]
+	path = external/sqlalchemy
+	url = https://github.com/sqlalchemy/sqlalchemy.git
