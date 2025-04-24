@@ -5,7 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "fdb>=2.0.2",
     "firebird-driver>=1.10.10",
     "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
     "sqlalchemy>=2.0.40",
+    "sqlalchemy-firebird>=2.1",
 ]

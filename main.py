@@ -1,8 +1,10 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, select
+import logging
+
+class User()
 
 def main():
-    engine = create_engine('firebird://', echo=True)
-
+    engine = create_engine("firebird+firebird://", echo=True)
 
 def test_connection():
     pass
