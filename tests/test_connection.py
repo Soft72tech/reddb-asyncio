@@ -4,10 +4,11 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 import pytest
 import asyncio
 from typing import Optional
+import os
 
-
-DB_HOST = "localhost"
-DB_CONNECT_URL = "firebird://SYSDBA:1@localhost:3050//db/test.fdb"
+DATABASE_URL = os.environ.get(
+    "DATABASE_URL", "firebird://SYSDBA:1@localhost:3050//db/test.fdb"
+)
 
 
 class Base(DeclarativeBase):
@@ -29,7 +30,7 @@ class User(Base):
 @pytest.mark.asyncio
 async def test_async_session():
     engine = create_engine(
-        DB_CONNECT_URL,
+        DATABASE_URL,
         echo=True,
     )
     s = SketchySession(engine)
@@ -44,7 +45,7 @@ async def test_async_session():
 async def test_create_engine():
     def test():
         engine = create_engine(
-            DB_CONNECT_URL,
+            DATABASE_URL,
             echo=True,
         )
         connection = engine.connect()
@@ -57,7 +58,7 @@ async def test_create_engine():
 @pytest.mark.asyncio
 async def test_create_table():
     engine = create_engine(
-        DB_CONNECT_URL,
+        DATABASE_URL,
         echo=True,
     )
     Base.metadata.create_all(engine)
@@ -66,7 +67,7 @@ async def test_create_table():
 @pytest.mark.asyncio
 async def test_get_table():
     engine = create_engine(
-        DB_CONNECT_URL,
+        DATABASE_URL,
         echo=True,
     )
     with Session(engine) as s:

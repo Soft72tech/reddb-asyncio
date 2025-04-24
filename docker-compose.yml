@@ -1,5 +1,8 @@
+volumes:
+  red-db:
+
 services:
-  red_db:
+  red-db:
     image: registry.red-soft.ru/red-database/red-database:5
     environment:
       - SYSDBA_PASSWORD=1
@@ -7,8 +10,20 @@ services:
       - red-db:/db
     ports:
       - 3050:3050
-volumes:
-  red-db:
+    
+  pytest:
+    pull_policy: never
+    build:
+      dockerfile: Dockerfile
+    command: [pytest, -vvv]
+    tty: true
+    depends_on:
+      red-db:
+        condition: service_started
+    volumes:
+      - .:/project
+    environment:
+      DATABASE_URL: "firebird://SYSDBA:1@red-db:3050//db/test.fdb"
 
   # firebird:
   #   image: firebirdsql/firebird
