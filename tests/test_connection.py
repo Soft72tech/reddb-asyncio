@@ -140,3 +140,10 @@ async def test_create_two_connections():
             s.close()
         if s2:
             s2.close()
+
+
+@pytest.mark.asyncio
+async def test_create_real_meta():
+    pass
+
+
